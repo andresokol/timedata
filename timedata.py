@@ -52,6 +52,12 @@ class Timedata:
 
         return Timedata(*self._normalize(hours, minutes, seconds))
 
+    def to_tuple(self) -> tp.Tuple[int, int, int]:
+        return (self.hours, self.minutes, self.seconds)
+
+    def __eq__(self, other) -> bool:
+        return self.to_tuple() == other.to_tuple()
+
 
 if __name__ == "__main__":
     x = Timedata.from_string("2:30:02")
