@@ -30,8 +30,8 @@ class Timedata:
     def __str__(self) -> str:
         return self.to_string()
 
-    @staticmethod
     def _normalize(
+        self,
         hours: int,
         minutes: int,
         seconds: int,
