@@ -4,7 +4,7 @@ import typing as tp
 class Timedata:
     LIMIT: int = 60
 
-    def __init__(self, hours: int, minutes: int, seconds: int):  # other comment
+    def __init__(self, hours: int, minutes: int, seconds: int): # some comment
         if not hours >= 0:
             raise ValueError(f"hours should not less than 0, got {hours}")
         if not 0 <= minutes < self.LIMIT:
