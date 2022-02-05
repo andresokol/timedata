@@ -4,7 +4,7 @@ import typing as tp
 class Timedata:
     LIMIT: int = 60
 
-    def __init__(self, hours: int, minutes: int, seconds: int):
+    def __init__(self, hours: int, minutes: int, seconds: int):  # other comment
         if not hours >= 0:
             raise ValueError(f"hours should not less than 0, got {hours}")
         if not 0 <= minutes < self.LIMIT:
@@ -55,9 +55,22 @@ class Timedata:
 
         return self.__class__(*self._normalize(hours, minutes, seconds))
 
+    def _as_tuple(self) -> tp.Tuple[int, int, int]:
+        return (self.hours, self.minutes, self.seconds)
+
+    def __as_tuple(self):
+        return self._as_tuple()
+
+    def __eq__(self, other) -> bool:
+        return self._as_tuple() == other._as_tuple()
+
+
+class MetricTimedata(Timedata):
+    LIMIT = 100
+
 
 if __name__ == "__main__":
-    x = Timedata.from_string("2:30:02")
-    y = Timedata.from_string("2:30:00")
+    x = MetricTimedata.from_string("2:30:02")
+    y = MetricTimedata.from_string("2:30:00")
 
-    print(x + y)
+    print(x + 10)
