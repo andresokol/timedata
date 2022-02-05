@@ -10,7 +10,7 @@ class Timedata:
         if not 0 <= seconds < 60:
             raise ValueError(f"seconds should be between 0 and 59, got {seconds}")
 
-        self.hours = hours
+        self.hours = hours  # test comment 2
         self.minutes = minutes
         self.seconds = seconds
 
